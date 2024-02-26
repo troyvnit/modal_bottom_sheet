@@ -775,7 +775,7 @@ class _ScrollSemantics extends SingleChildRenderObjectWidget {
     required this.allowImplicitScrolling,
     required this.semanticChildCount,
     super.child,
-  })  : assert(semanticChildCount == null || semanticChildCount >= 0);
+  }) : assert(semanticChildCount == null || semanticChildCount >= 0);
 
   final ScrollPosition position;
   final bool allowImplicitScrolling;
@@ -867,9 +867,7 @@ class _RenderScrollSemantics extends RenderProxyBox {
     }
 
     _innerNode ??= SemanticsNode(showOnScreen: showOnScreen);
-    _innerNode!
-      ..isMergedIntoParent = node.isPartOfNodeMerging
-      ..rect = node.rect;
+    _innerNode!.rect = node.rect;
 
     int? firstVisibleIndex;
     final List<SemanticsNode> excluded = <SemanticsNode>[_innerNode!];
